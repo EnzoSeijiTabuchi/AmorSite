@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Você</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fce4ec; /* Um tom de rosa bem clarinho */
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .flower-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .petal {
+            position: absolute;
+            bottom: 150px;
+            left: 100px;
+            width: 100px;
+            height: 150px;
+            background-color: #ff80ab; /* Cor da pétala */
+            border-radius: 50px 50px 0 0;
+            transform-origin: bottom center;
+            transition: transform 2s ease-in-out;
+        }
+
+        /* Posicionando cada pétala */
+        .petal-1 { transform: rotate(0deg) scale(0); animation: bloom 4s 1s forwards; }
+        .petal-2 { transform: rotate(60deg) scale(0); animation: bloom 4s 1.2s forwards; }
+        .petal-3 { transform: rotate(120deg) scale(0); animation: bloom 4s 1.4s forwards; }
+        .petal-4 { transform: rotate(180deg) scale(0); animation: bloom 4s 1.6s forwards; }
+        .petal-5 { transform: rotate(240deg) scale(0); animation: bloom 4s 1.8s forwards; }
+        .petal-6 { transform: rotate(300deg) scale(0); animation: bloom 4s 2s forwards; }
+
+        /* Animação do desabrochar */
+        @keyframes bloom {
+            0% {
+                transform: rotate(var(--start-rotate)) scale(0);
+            }
+            100% {
+                transform: rotate(var(--end-rotate)) scale(1);
+            }
+        }
+
+        /* Definindo variáveis para a animação */
+        .petal-1 { --start-rotate: 0deg; --end-rotate: -20deg; }
+        .petal-2 { --start-rotate: 60deg; --end-rotate: 40deg; }
+        .petal-3 { --start-rotate: 120deg; --end-rotate: 100deg; }
+        .petal-4 { --start-rotate: 180deg; --end-rotate: 160deg; }
+        .petal-5 { --start-rotate: 240deg; --end-rotate: 220deg; }
+        .petal-6 { --start-rotate: 300deg; --end-rotate: 280deg; }
+
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            background-color: #fff176; /* Cor do miolo da flor */
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: center-grow 2s 3s forwards;
+        }
+
+        @keyframes center-grow {
+            from { transform: translate(-50%, -50%) scale(0); }
+            to { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .message {
+            position: absolute;
+            bottom: 20px;
+            color: #c2185b; /* Cor do texto */
+            font-size: 24px;
+            opacity: 0;
+            animation: fadeInMessage 3s 4.5s forwards;
+            text-align: center;
+            width: 100%;
+        }
+
+        @keyframes fadeInMessage {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="flower-container">
+        <div class="petal petal-1"></div>
+        <div class="petal petal-2"></div>
+        <div class="petal petal-3"></div>
+        <div class="petal petal-4"></div>
+        <div class="petal petal-5"></div>
+        <div class="petal petal-6"></div>
+        <div class="center"></div>
+    </div>
+    <div class="message">
+        <p>Para a flor mais linda do meu jardim.</p>
+    </div>
+
+</body>
+</html>
